@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+这是vue-cli组件的学习
+
 ## Build Setup
 
 ``` bash
