@@ -10,9 +10,10 @@
       </div>
     </header>
     <div class="container">
+    <div class="row">
       <Add/>
-      <list/>
-
+      <list :comments="comments"/>
+    </div>
     </div>
   </div>
 </template>
@@ -22,6 +23,25 @@ import Add from './components/Add'
 import List from './components/List'
 
 export default {
+  data(){
+    return {
+      comments:[
+        {
+          name:'BOB',
+          content:'Vue 还不错'
+        },
+        {
+          name:'Cat',
+          content:'Vue 一般般'
+        },
+        {
+          name:'EZ',
+          content:'Vue 简单'
+        }
+
+      ]
+    }
+  },
   components: {
     Add,
     List
