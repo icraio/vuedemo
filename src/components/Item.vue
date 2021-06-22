@@ -5,14 +5,7 @@
         <a href="javascript:">删除</a>
       </div>
       <p class="user"><span>{{comment.name}}</span><span>说：</span></p>
-      <p class="centence">{{comment.name}}</p>
-    </li>
-    <li class="list-group-item">
-      <div class="handle">
-        <a href="javascript:">删除</a>
-      </div>
-      <p class="user"><span>{{comment.name}}</span><span>说：</span></p>
-      <p class="centence">{{comment.name}}</p>
+      <p class="centence">{{comment.content}}</p>
     </li>
   </div>
 </template>

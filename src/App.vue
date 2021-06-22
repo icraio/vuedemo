@@ -11,7 +11,7 @@
     </header>
     <div class="container">
     <div class="row">
-      <Add/>
+      <Add :addComment="addComment"/>
       <list :comments="comments"/>
     </div>
     </div>
@@ -25,21 +25,27 @@ import List from './components/List'
 export default {
   data(){
     return {
-      comments:[
+      comments:[ //数据在哪个组件，更新数据的行为(方法)就应该定义在哪个组件
         {
           name:'BOB',
-          contents:'Vue 还不错'
+          content:'Vue 还不错'
         },
         {
           name:'Cat',
-          contents:'Vue 一般般'
+          content:'Vue 一般般'
         },
         {
           name:'EZ',
-          contents:'Vue 简单'
+          content:'Vue 简单'
         }
 
       ]
+    }
+  },
+  methods:{
+    addComment(comment){
+      //在数组开头添加数据：unshift()
+      this.comments.unshift(comment)
     }
   },
   components: {
