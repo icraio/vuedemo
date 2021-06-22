@@ -1,18 +1,20 @@
 <template>
-  <li class="list-group-item">
-    <div class="handle">
-      <a href="javascript:">删除</a>
-    </div>
-    <p class="user"><span>{{comment.name}}</span><span>说：</span></p>
-    <p class="centence">Vue不错！</p>
-  </li>
-  <li class="list-group-item">
-    <div class="handle">
-      <a href="javascript:">删除</a>
-    </div>
-    <p class="user"><span>{{ comment.name }}</span><span>说：</span></p>
-    <p class="centence">Vue不错</p>
-  </li>
+  <div>
+    <li class="list-group-item">
+      <div class="handle">
+        <a href="javascript:">删除</a>
+      </div>
+      <p class="user"><span>{{comment.name}}</span><span>说：</span></p>
+      <p class="centence">{{comment.name}}</p>
+    </li>
+    <li class="list-group-item">
+      <div class="handle">
+        <a href="javascript:">删除</a>
+      </div>
+      <p class="user"><span>{{comment.name}}</span><span>说：</span></p>
+      <p class="centence">{{comment.name}}</p>
+    </li>
+  </div>
 </template>
 
 <script>

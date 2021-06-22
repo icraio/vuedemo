@@ -28,15 +28,15 @@ export default {
       comments:[
         {
           name:'BOB',
-          content:'Vue 还不错'
+          contents:'Vue 还不错'
         },
         {
           name:'Cat',
-          content:'Vue 一般般'
+          contents:'Vue 一般般'
         },
         {
           name:'EZ',
-          content:'Vue 简单'
+          contents:'Vue 简单'
         }
 
       ]
