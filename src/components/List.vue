@@ -8,6 +8,16 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+.reply{
+  margin-top: 0;
+}
+li{
+  transition: .5s;
+  overflow: hidden;
+}
+.handle{
+  width: 40px;
+  border: 1px solid #ccc;
+}
 </style>

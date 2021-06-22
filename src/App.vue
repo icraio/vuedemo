@@ -10,7 +10,8 @@
       </div>
     </header>
     <div class="container">
-
+      <Add/>
+      <list/>
 
     </div>
   </div>
@@ -21,7 +22,7 @@ import Add from './components/Add'
 import List from './components/List'
 
 export default {
-  components:{
+  components: {
     Add,
     List
   }
