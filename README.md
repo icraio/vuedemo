@@ -4,20 +4,9 @@
 
 这是vue-cli组件的学习
 
-## Build Setup
+1.对于想要强制绑定的元素，可以省略v-bind在前面加上":"即可，如（:index="index"）
+2.对于数据/方法的位置，选择放在父组件内，然后通过组件通信传递给其它组件：
+  父组件暴露：<Add :addComment="addComment"/>//其中引号内的addComment是一个方法
+            ：<list :comments="comments" :deleteComment="deleteComment"/>//其中引号内comments是一个数组对象数据，deleteComment是一个方法
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+          
