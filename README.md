@@ -15,7 +15,12 @@
 ```
 &emsp;子组件接收：  
 ```
-  
+  props: ['comments', 'deleteComment'],//这种方式只指定属性名
+  props:{
+    addComment: { // 指定属性名、属性值的类型/必要性
+      type:Function,
+      require: true
+    }
 ```
 
 
