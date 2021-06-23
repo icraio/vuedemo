@@ -12,7 +12,7 @@
     <div class="container">
     <div class="row">
       <Add :addComment="addComment"/>
-      <list :comments="comments"/>
+      <list :comments="comments" :deleteComment="deleteComment"/>
     </div>
     </div>
   </div>
@@ -46,6 +46,10 @@ export default {
     addComment(comment){
       //在数组开头添加数据：unshift()
       this.comments.unshift(comment)
+    },
+    //删除指定下标的评论
+    deleteComment(index){
+      this.comments.splice(index,1)
     }
   },
   components: {
