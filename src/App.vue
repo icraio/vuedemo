@@ -3,7 +3,8 @@
     <div class="todo-wrap">
       <todo-header :addTodo="addTodo"/>
       <TodoList :todos="todos" :deleteTodo="deleteTodo"/>
-      <TodoFooter></TodoFooter>
+      <TodoFooter :todos="todos" :deleteCompleteTodos="deleteCompleteTodos"
+                  :selectAllTodos="selectAllTodos"></TodoFooter>
     </div>
   </div>
 </template>
@@ -14,24 +15,32 @@ import TodoList from './components/TodoList'
 import TodoFooter from './components/TodoFooter'
 
 export default {
-  data(){
+  data () {
     return {
-      todos:[
-        {title:'吃饭',complete:false},
-        {title:'睡觉',complete:true},
-        {title:'coding',complete:false}
+      todos: [
+        {title: '吃饭', complete: false},
+        {title: '睡觉', complete: true},
+        {title: 'coding', complete: false}
       ]
     }
   },
-  methods:{
-    addTodo(todo){
+  methods: {
+    addTodo (todo) {
       this.todos.unshift(todo)
     },
-    deleteTodo(index){
-      this.todos.splice(index,1)
+    deleteTodo (index) {
+      this.todos.splice(index, 1)
+    },
+    //删除所有选中的todo
+    deleteCompleteTodos () {
+      this.todos = this.todos.filter(todo => !todo.complete)
+    },
+    //全选/全不选
+    selectAllTodos (check) {
+      this.todos.forEach(todo => todo.complete = check)
     }
   },
-  components:{
+  components: {
     TodoHeader,
     TodoList,
     TodoFooter
@@ -40,11 +49,12 @@ export default {
 </script>
 
 <style scoped>
-.todo-container{
+.todo-container {
   width: 600px;
   margin: 0 auto;
 }
-.todo-container .todo-wrap{
+
+.todo-container .todo-wrap {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
