@@ -23,7 +23,7 @@ export default {
     },
     isAllCheck: {
       get () {
-        return this.completeSize === this.todos.length
+        return this.completeSize === this.todos.length && this.completeSize > 0
       },
       set (value) { //value 是当前checkbox最新的值
         this.selectAllTodos(value)
