@@ -1,8 +1,8 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <TodoHeader/>
-      <TodoList :todos="todos" :addTodo="addTodo"/>
+      <TodoHeader :addTodo="addTodo"/>
+      <TodoList :todos="todos"/>
       <todo-footer/>
     </div>
   </div>
