@@ -25,7 +25,6 @@ export default {
   },
   methods: {
     handleEnter (isEnter) {
-      console.log(isEnter)
       if (isEnter) {
         this.bgColor = 'gray'
         this.isShow = true
