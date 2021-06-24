@@ -1,25 +1,46 @@
 <template>
-  <li>
+  <!--
+
+  -->
+  <li @mouseenter="handleEnter(true)" @mouseleave="handleEnter(false)">
     <label>
       <input type="checkbox" v-model="todo.complete"/>
-      <span>{{todo.title}}</span>
+      <span>{{ todo.title }}</span>
     </label>
-    <button class="btn btn-danger">删除</button>
+    <button class="btn btn-danger" style="display: none">删除</button>
   </li>
 </template>
 
 <script>
 export default {
-  props:{
-    todo:Object,
-    index:Number
+  props: {
+    todo: Object,
+    index: Number
+  },
+  data () {
+    return {
+      bgColor: 'white',//默认的背景颜色
+      isShow: false, //按钮默认是否显示
+    }
+  },
+  methods: {
+    handleEnter (isEnter) {
+      console.log(isEnter)
+      if (isEnter) {
+        this.bgColor = 'gray'
+        this.isShow = true
+      } else {
+        this.bgColor = 'white'
+        this.isShow = false
+      }
+    }
   }
 }
 </script>
 
 <style scoped>
 /*下面是item*/
-li{
+li {
   list-style: none;
   height: 36px;
   line-height: 36px;
@@ -27,29 +48,29 @@ li{
   border-bottom: 1px solid #ddd;
 }
 
-li label{
+li label {
   float: left;
   cursor: pointer;
 }
 
-li label li input{
+li label li input {
   vertical-align: middle;
   margin-right: 6px;
   position: relative;
   top: -1px;
 }
 
-li button{
+li button {
   float: right;
   display: none;
   margin-top: 3px;
 }
 
-li:before{
+li:before {
   content: inherit;
 }
 
-li:last-child{
+li:last-child {
   border-bottom: none;
 }
 </style>
