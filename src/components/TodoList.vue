@@ -1,20 +1,21 @@
 <template>
   <ul class="todo-main">
-    <todo-item>
-      <li>
-        <label>
-          <input type="checkbox"/>
-          <span></span>
-        </label>
-        <button class="btn btn-danger">删除</button>
-      </li>
+    <todo-item v-for="(todo,index) in todos" :key="index" :todo="todo" :index="index">
+
     </todo-item>
   </ul>
 </template>
 
 <script>
+import TodoItem from './TodoItem'
+
 export default {
-  name: 'TodoHeader'
+  props:{
+    todos:Array
+  },
+  components:{
+    TodoItem
+  }
 }
 </script>
 
@@ -35,38 +36,5 @@ export default {
   margin-top: 10px;
 }
 
-/*下面是item*/
-li{
-  list-style: none;
-  height: 36px;
-  line-height: 36px;
-  padding: 0 5px;
-  border-bottom: 1px solid #ddd;
-}
 
-li label{
-  float: left;
-  cursor: pointer;
-}
-
-li label li input{
-  vertical-align: middle;
-  margin-right: 6px;
-  position: relative;
-  top: -1px;
-}
-
-li button{
-  float: right;
-  display: none;
-  margin-top: 3px;
-}
-
-li:before{
-  content: inherit;
-}
-
-li:last-child{
-  border-bottom: none;
-}
 </style>
