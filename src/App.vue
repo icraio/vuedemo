@@ -2,7 +2,7 @@
   <div class="todo-container">
     <div class="todo-wrap">
       <TodoHeader/>
-      <TodoList :todos="todos"/>
+      <TodoList :todos="todos" :addTodo="addTodo"/>
       <todo-footer/>
     </div>
   </div>
@@ -21,6 +21,11 @@ export default {
         {title:'睡觉',complete:true},
         {title:'coding',complete:false}
       ]
+    }
+  },
+  methods:{
+    addTodo(todo){
+      this.todos.unshift(todo)
     }
   },
   components:{

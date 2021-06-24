@@ -4,7 +4,7 @@
       <input type="checkbox">
     </label>
     <span>
-      <span>已完成</span>/全部
+      <span>已完成{{}}</span>/全部{{}}
     </span>
     <button class="btn btn-danger">清除已完成任务</button>
   </div>
