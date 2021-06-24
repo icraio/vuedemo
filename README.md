@@ -10,13 +10,21 @@
 &emsp;&emsp;首先在最外部分有一个index.html页面，这是所有组件最终汇集的文件，里面只有一个id为app(这个id可以自己定义，默认app)的div  
 &emsp;&emsp;而组件代码中，html部分放在了template标签中，但是template标签子集只能是一个div标签，  
 &emsp;&emsp;也就是说，将一个代码块搬到组件*.vue文件的template标签中时，必须要用一个完整的div来包裹  
-&emsp;&emsp;父组件引用子组件：在子组件的位子写好子组件名称的标签，然后再components中声明一下：  
+&emsp;&emsp;父组件引用子组件：在子组件的位子写好子组件名称的标签，  
 ```
-components:{
-    TodoHeader,
-    TodoList,
-    TodoFooter
-  }
+    //这三种格式都可以
+    <todo-header/>
+    <TodoList :todos="todos" :deleteTodo="deleteTodo"/>
+    <TodoFooter></TodoFooter>
+```
+
+然后再components中声明一下：  
+```
+    components:{
+        TodoHeader,
+        TodoList,
+        TodoFooter
+      }
 ```
 
 2. 对于想要强制绑定的元素，可以省略v-bind在前面加上":"即可，如（:index="index"）  
@@ -24,10 +32,10 @@ components:{
 3. 对于数据/方法的位置，选择放在父组件内，然后通过组件通信传递给其它组件：  
 &emsp;父组件暴露：  
 ```
-  <Add :addComment="addComment"/>
-  //上面引号内的addComment是一个方法
-  <list :comments="comments" :deleteComment="deleteComment"/>
-  //上面引号内comments是一个数组对象数据，deleteComment是一个方法
+    <Add :addComment="addComment"/>
+    //上面引号内的addComment是一个方法
+    <list :comments="comments" :deleteComment="deleteComment"/>
+    //上面引号内comments是一个数组对象数据，deleteComment是一个方法
 ```
 &emsp;子组件接收：  
 ```
