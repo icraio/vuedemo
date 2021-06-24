@@ -1,6 +1,14 @@
 <template>
   <ul class="todo-main">
-    <todo-item></todo-item>
+    <todo-item>
+      <li>
+        <label>
+          <input type="checkbox"/>
+          <span></span>
+        </label>
+        <button class="btn btn-danger">删除</button>
+      </li>
+    </todo-item>
   </ul>
 </template>
 
