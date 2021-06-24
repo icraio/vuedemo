@@ -1,5 +1,7 @@
 <template>
-  <ul class="todo-main"></ul>
+  <ul class="todo-main">
+    <todo-item></todo-item>
+  </ul>
 </template>
 
 <script>
