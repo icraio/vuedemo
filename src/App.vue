@@ -19,7 +19,7 @@ export default {
     return {
       //从LocalStorage读取todos，得到的是字符串类型
       //通过JSON.pares()将字符串数据转变成
-      todos:JSON.parse(window.localStorage.getItem('todos_key')||'[]')
+      todos:JSON.parse(window.localStorage.getItem('todos_keys')||'[]')
       // todos: [
       //   {title: '吃饭', complete: false},
       //   {title: '睡觉', complete: true},
@@ -49,7 +49,7 @@ export default {
       deep:true, //深度监视
       handler:function (Value) {
         //将todos最新的值的json数据，保存到LocalStorage
-        window.localStorage.setItem('todos_key',JSON.stringify(Value))
+        window.localStorage.setItem('todos_keys',JSON.stringify(Value))
       }
     }
   },
