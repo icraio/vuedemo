@@ -17,6 +17,7 @@ import TodoFooter from './components/TodoFooter'
 export default {
   data () {
     return {
+      //从本地文件中读取数据（类似安卓的sharepreference），而不是写死数据
       //从LocalStorage读取todos，得到的是字符串类型
       //通过JSON.pares()将字符串数据转变成
       todos:JSON.parse(window.localStorage.getItem('todos_keys')||'[]')
