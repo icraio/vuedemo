@@ -1,7 +1,8 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <todo-header :addTodo="addTodo"/>
+<!--      <todo-header @addTodo="addTodo"/>&lt;!&ndash;      给todoHeader标签对象绑定addTodo事件监听,但是这种方法只能用于父子组件之间传递&ndash;&gt;-->
+      <todo-header ref="header"></todo-header>
       <TodoList :todos="todos" :deleteTodo="deleteTodo"/>
       <TodoFooter :todos="todos" :deleteCompleteTodos="deleteCompleteTodos"
                   :selectAllTodos="selectAllTodos"></TodoFooter>
@@ -20,13 +21,18 @@ export default {
       //从本地文件中读取数据（类似安卓的sharepreference），而不是写死数据
       //从LocalStorage读取todos，得到的是字符串类型
       //通过JSON.pares()将字符串数据转变成
-      todos:JSON.parse(window.localStorage.getItem('todos_keys')||'[]')
+      todos: JSON.parse(window.localStorage.getItem('todos_keys') || '[]')
       // todos: [
       //   {title: '吃饭', complete: false},
       //   {title: '睡觉', complete: true},
       //   {title: 'coding', complete: false}
       // ]
     }
+  },
+  mounted () { //执行异步代码
+      // 给<todo-header/>标签绑定addTodo事件监听
+    // this.$on('addTodo',this.addTodo)//这是在给app绑定监听，这是错的
+    this.$refs.header.$on('addTodo',this.addTodo)
   },
   methods: {
     addTodo (todo) {
@@ -45,12 +51,12 @@ export default {
     }
   },
 
-  watch:{//深度监视
-    todos:{
-      deep:true, //深度监视
-      handler:function (Value) {
+  watch: {//深度监视
+    todos: {
+      deep: true, //深度监视
+      handler: function (Value) {
         //将todos最新的值的json数据，保存到LocalStorage
-        window.localStorage.setItem('todos_keys',JSON.stringify(Value))
+        window.localStorage.setItem('todos_keys', JSON.stringify(Value))
       }
     }
   },

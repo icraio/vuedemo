@@ -7,7 +7,7 @@
 <script>
 export default {
   props:{
-    addTodo:Function
+
   },
   data () {
     return {
@@ -28,7 +28,11 @@ export default {
         complete:false
       }
       //3 添加到todos
-        this.addTodo(todo)
+      //   this.addTodo(todo)
+
+      //触发自定义事件addTodo并且传参todo
+      this.$emit('addTodo',todo)
+
       //4 清除输入
       this.title =''
     }
