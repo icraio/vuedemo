@@ -30,6 +30,7 @@
 2. 对于想要强制绑定的元素，可以省略v-bind在前面加上":"即可，如（:index="index"）  
 
 3. 对于数据/方法的位置，选择放在父组件内，然后通过组件通信传递给其它组件：  
+###### &emsp;这里要声明：组件通信传值传出去的名称都是":"后面的名称，这里建议直接一个值对应一个名称一直传下去  
 &emsp;父组件暴露：  
 ```
     <Add :addComment="addComment"/>
@@ -56,6 +57,31 @@
     index:Number
    },
 ```
-###### 这里要声明：组件通信传值传出去的名称都是":"后面的名称，这里建议直接一个值对应一个名称一直传下去
+### 上面是一类数据传输方法，对于函数的传输还有：  
+1. 给标签对象绑定事件监听：  
+&emsp;父组件:
+```
+//
+  <todo-header @addTodo="addTodo"/> // 给todoHeader标签对象绑定addTodo事件监听,但是这种方法只能用于父子组件之间传递
+  methods: {
+    addTodo (todo) {
+      this.todos.unshift(todo)
+    }
+  }
+```
+&emsp;&emsp;&emsp;子组件:
+```
+//在methods中使用$emit()
+  const todo = {
+        title,
+        complete:false
+      }
+  this.$emit('addTodo',todo)
+```
+2. 使用ref传递
+&emsp;使用ref传递的话需要使用mounted(){//执行异步代码}
+&emsp;
+```
 
-          
+```
+
