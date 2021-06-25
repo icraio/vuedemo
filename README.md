@@ -92,4 +92,7 @@
     this.$refs.header.$on('addTodo',this.addTodo)
   },
 ```
-
+&emsp;子组件：  
+```
+ this.$emit('addTodo',todo)
+```
