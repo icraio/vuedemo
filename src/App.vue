@@ -17,11 +17,14 @@ import TodoFooter from './components/TodoFooter'
 export default {
   data () {
     return {
-      todos: [
-        {title: '吃饭', complete: false},
-        {title: '睡觉', complete: true},
-        {title: 'coding', complete: false}
-      ]
+      //从LocalStorage读取todos，得到的是字符串类型
+      //通过JSON.pares()将字符串数据转变成
+      todos:JSON.parse(window.localStorage.getItem('todos_key')||'[]')
+      // todos: [
+      //   {title: '吃饭', complete: false},
+      //   {title: '睡觉', complete: true},
+      //   {title: 'coding', complete: false}
+      // ]
     }
   },
   methods: {
@@ -40,6 +43,17 @@ export default {
       this.todos.forEach(todo => todo.complete = check)
     }
   },
+
+  watch:{//深度监视
+    todos:{
+      deep:true, //深度监视
+      handler:function (Value) {
+        //将todos最新的值的json数据，保存到LocalStorage
+        window.localStorage.setItem('todos_key',JSON.stringify(Value))
+      }
+    }
+  },
+
   components: {
     TodoHeader,
     TodoList,
