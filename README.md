@@ -8,8 +8,7 @@
 
 1. vue属于组件化编写代码，通过将不同部分的功能代码不断拆分成不同的代码块来调用，从而实现一个完整的页面：
 &emsp;&emsp;首先在最外部分有一个index.html页面，这是所有组件最终汇集的文件，里面只有一个id为app(这个id可以自己定义，默认app)的div
-&emsp;&emsp;而组件代码中，html部分放在了template标签中，但是template标签子集只能是一个div标签，
-&emsp;&emsp;也就是说，将一个代码块搬到组件*.vue文件的template标签中时，必须要用一个完整的div来包裹
+&emsp;&emsp;而组件代码中，html部分放在了template标签中，但是template标签子集只能是一个div标签，也就是说，将一个代码块搬到组件*.vue文件的template标签中时，必须要用一个完整的div来包裹
 &emsp;&emsp;父组件引用子组件：在子组件的位子写好子组件名称的标签，
 ```
     //这三种格式都可以
@@ -61,8 +60,10 @@
 1. 给标签对象绑定事件监听：(这种方法只能用于父子组件之间传递)
 &emsp;父组件:
 ```
-//
+  //标签中
   <todo-header @addTodo="addTodo"/> // 给todoHeader标签对象绑定addTodo事件监听,但是这种方法只能用于父子组件之间传递
+
+  //在mounted()中
   methods: {
     addTodo (todo) {
       this.todos.unshift(todo)
