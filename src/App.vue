@@ -4,8 +4,13 @@
       <!--      <todo-header @addTodo="addTodo"/>&lt;!&ndash;      给todoHeader标签对象绑定addTodo事件监听,但是这种方法只能用于父子组件之间传递&ndash;&gt;-->
       <todo-header ref="header"></todo-header>
       <TodoList :todos="todos"/>
-      <TodoFooter :todos="todos" :deleteCompleteTodos="deleteCompleteTodos"
-                  :selectAllTodos="selectAllTodos"></TodoFooter>
+<!--      <TodoFooter :todos="todos" :deleteCompleteTodos="deleteCompleteTodos"-->
+<!--                  :selectAllTodos="selectAllTodos"></TodoFooter>-->
+      <todo-footer>
+        <input type="checkbox" v-model="isAllCheck" slot="checkAll">
+        <span slot="count">已完成{{ completeSize }}/全部{{ todos.length }}</span>
+        <button class="btn btn-danger" v-show="completeSize" @click="deleteCompleteTodos" slot="delete">清除已完成任务</button>-->
+      </todo-footer>
     </div>
   </div>
 </template>
@@ -34,6 +39,20 @@ export default {
       //   {title: 'coding', complete: false}
       // ]
     }
+  },
+  computed: {
+    completeSize () {
+      return this.todos.reduce((preTotal, todo) => preTotal + (todo.complete ? 1 : 0), 0)
+    },
+    isAllCheck: {
+      get () {
+        return this.completeSize === this.todos.length && this.completeSize > 0
+      },
+      set (value) { //value 是当前checkbox最新的值
+        this.selectAllTodos(value)
+      }
+    },
+
   },
   mounted () { //执行异步代码
     // 给<todo-header/>标签绑定addTodo事件监听
