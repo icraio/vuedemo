@@ -102,7 +102,7 @@
 3. 使用pubsub组建通信  
 &emsp;&emsp;引入pubsub之后可以直接调用方法
 ```
-//首先引入pubsub
+//首先在需要使用pubsub的组件中引入pubsub
 import PubSub from 'pubsub-js'
 ```
 &emsp;父组件： 
