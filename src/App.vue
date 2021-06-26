@@ -1,16 +1,21 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-<!--      <todo-header @addTodo="addTodo"/>&lt;!&ndash;      给todoHeader标签对象绑定addTodo事件监听,但是这种方法只能用于父子组件之间传递&ndash;&gt;-->
+      <!--      <todo-header @addTodo="addTodo"/>&lt;!&ndash;      给todoHeader标签对象绑定addTodo事件监听,但是这种方法只能用于父子组件之间传递&ndash;&gt;-->
       <todo-header ref="header"></todo-header>
-      <TodoList :todos="todos" :deleteTodo="deleteTodo"/>
+      <TodoList :todos="todos"/>
       <TodoFooter :todos="todos" :deleteCompleteTodos="deleteCompleteTodos"
                   :selectAllTodos="selectAllTodos"></TodoFooter>
     </div>
   </div>
 </template>
+<!--
+绑定事件监听 ····订阅消息
+触发事件  ----发布消息
+-->
 
 <script>
+import PubSub from 'pubsub-js'
 import TodoHeader from './components/TodoHeader'
 import TodoList from './components/TodoList'
 import TodoFooter from './components/TodoFooter'
@@ -30,9 +35,14 @@ export default {
     }
   },
   mounted () { //执行异步代码
-      // 给<todo-header/>标签绑定addTodo事件监听
+    // 给<todo-header/>标签绑定addTodo事件监听
     // this.$on('addTodo',this.addTodo)//这是在给app绑定监听，这是错的
-    this.$refs.header.$on('addTodo',this.addTodo)
+    this.$refs.header.$on('addTodo', this.addTodo)
+
+    //订阅消息
+    PubSub.subscribe('deleteTodo', (msg, index) => {
+      this.deleteTodo(index)
+    })
   },
   methods: {
     addTodo (todo) {
