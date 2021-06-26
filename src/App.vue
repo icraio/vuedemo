@@ -15,6 +15,7 @@
 -->
 
 <script>
+// pubsub组件通信没有任何位置的要求
 import PubSub from 'pubsub-js'
 import TodoHeader from './components/TodoHeader'
 import TodoList from './components/TodoList'
