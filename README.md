@@ -2,13 +2,15 @@
 
 > A Vue.js project
 
-这是vue-cli组件的学习
+这是我自己对vue-cli组件学习的记录
 
 # 笔记
 
 1. vue属于组件化编写代码，通过将不同部分的功能代码不断拆分成不同的代码块来调用，从而实现一个完整的页面：  
 &emsp;&emsp;首先在最外部分有一个index.html页面，这是所有组件最终汇集的文件，里面只有一个id为app(这个id可以自己定义，默认app)的div  
 &emsp;&emsp;而组件代码中，html部分放在了template标签中，但是template标签子集只能是一个div标签，也就是说，将一个代码块搬到组件*.vue文件的template标签中时，必须要用一个完整的div来包裹  
+
+### base1
 &emsp;&emsp;父组件引用子组件：在子组件的位子写好子组件名称的标签，
 ```
     //这三种格式都可以
@@ -56,7 +58,8 @@
     index:Number
    },
 ```
-### 上面是一类数据传输方法，对于函数的传输还有：  
+#### 上面是一类数据传输方法，对于函数的传输还有：  
+### todos2
 1. 给标签对象绑定事件监听：(这种方法只能用于父子组件之间传递)  
 &emsp;父组件:  
 ```
@@ -95,4 +98,29 @@
 &emsp;子组件：  
 ```
  this.$emit('addTodo',todo)
+```
+3. 使用pubsub组建通信  
+&emsp;&emsp;引入pubsub之后可以直接调用方法
+```
+//首先引入pubsub
+import PubSub from 'pubsub-js'
+```
+&emsp;父组件： 
+```
+//在mounted()中直接调用PubSub的方法
+    PubSub.subscribe('deleteTodo', (msg, index) => {
+      this.deleteTodo(index)
+    })
+```
+&emsp;子组件：  
+```
+//deleteItem()中使用：
+    deleteItem () {
+      const {todo, index, deleteTodo} = this
+      if (window.confirm(`确认删除${todo.title}吗？`)) {
+        // deleteTodo(index)
+        //发布消息
+        PubSub.publish('deleteTodo', index)
+      }
+    }
 ```
