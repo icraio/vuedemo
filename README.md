@@ -159,7 +159,7 @@ import PubSub from 'pubsub-js'
   ```
   import axios from 'axios'
   ```
-  2. r然后跟vue-resource一样在mounted()中调用axios方法
+  2. 然后跟vue-resource一样在mounted()中调用axios方法
 
   ```
       axios.get(url).then(response => {
