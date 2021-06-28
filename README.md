@@ -124,3 +124,33 @@ import PubSub from 'pubsub-js'
       }
     }
 ```
+
+4. ajax请求
+
+#####vue-resource  
+  1. 首先是在main.js中引入vue-resource组件库，并且声明使用插件
+  ```
+  import VueResource from 'vue-resource'
+  //声明使用插件
+  Vue.use(VueResource) //内部会给vm对象和组件对象添加一个属性：$http
+  ```
+  2. 然后再需要使用ajax请求的组件中的初始化对象中调用$http属性
+  ```
+    mounted () {
+    //发送ajax请求获取数据
+    const url = `https://api.github.com/search/repositories?q=v&sort=stars`
+    this.$http.get(url).then(
+      //成功
+      response => {
+        const result = response.data
+        //得到最受欢迎的repo
+        const mostRepo = result.items[0]
+        this.repoUrl = mostRepo.html_url
+        this.repoName = mostRepo.name
+      },
+      response => {
+        alert('请求失败')
+      }
+    )
+  }
+  ```
