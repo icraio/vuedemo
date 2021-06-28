@@ -125,9 +125,9 @@ import PubSub from 'pubsub-js'
     }
 ```
 
-4. ajax请求
+4. 发送ajax请求
 
-###### vue-resource  
+##### vue-resource  
   1. 首先是在main.js中引入vue-resource组件库，并且声明使用插件
   ```
   import VueResource from 'vue-resource'
@@ -154,3 +154,22 @@ import PubSub from 'pubsub-js'
     )
   }
   ```
+  ##### axios 
+  1. 首先在需要在需要发送ajax请求的组件中引入axios
+  ```
+  import axios from 'axios'
+  ```
+  2. r然后跟vue-resource一样在mounted()中调用axios方法
+
+  ```
+      axios.get(url).then(response => {
+      //成功
+      const result = response.data
+      const mostRepo = result.items[0]
+      this.repoUrl = mostRepo.html_url
+      this.repoName = mostRepo.name
+    }).catch(error =>{
+      alert('请求失败')
+    })
+  ```
+###### 这里请求报错使用的是catch(error=>{})
