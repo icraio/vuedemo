@@ -127,7 +127,7 @@ import PubSub from 'pubsub-js'
 
 4. ajax请求
 
-#####vue-resource  
+##### vue-resource  
   1. 首先是在main.js中引入vue-resource组件库，并且声明使用插件
   ```
   import VueResource from 'vue-resource'
