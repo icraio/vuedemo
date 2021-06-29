@@ -61,9 +61,17 @@
 
 ### 对于组件的引用还有一种方法是slot插槽，当我们将多次重复调用某一个组件的时候，可以使用slot
 &emsp;&emsp;在父组件中使用slot调用子组件的时候，slot属性要与子组件的name属性对应，并且，子组件中相关的计算属性调到父组件中：  
-&emsp;父组件中：
+&emsp;父组件template中：
 ```
-
+ <span slot="count">已完成{{ completeSize }}/全部{{ todos.length }}</span>
+```
+&emsp;父组件computed中：
+```
+  computed: {
+    completeSize () {
+          return this.todos.reduce((preTotal, todo) => preTotal + (todo.complete ? 1 : 0), 0)
+        },
+  }
 ```
 
 
