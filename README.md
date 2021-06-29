@@ -74,6 +74,11 @@
   }
 ```
 
+&emsp;子组件template中：
+```
+<slot name="count"></slot>
+```
+
 
 #### 上面是一类数据组件传输方法，对于函数的传输还有：  
 ### todos2
