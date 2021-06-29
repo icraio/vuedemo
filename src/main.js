@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './App1'
+import App from './App'
 import VueResource from 'vue-resource'
 
 //声明使用vue-resource插件
