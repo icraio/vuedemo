@@ -49,10 +49,10 @@ export default {
         this.loading = false
         this.users = users
       }).catch(error => {
+        //失败，更新状态(失败)
         this.loading = false
         this.errorMsg = '请求失败'
       })
-      //失败，更新状态(失败)
     })
   }
 
