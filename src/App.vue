@@ -1,38 +1,19 @@
 <template>
-  <div class="container">
-    <Search></Search>
-    <UsersMain></UsersMain>
-  </div>
+  <mt-button type="primary" @click.native="handleClick" style="width: 100%">Test</mt-button>
 </template>
 
 <script>
-import Search from './components/Search'
-import Main from './components/Main'
+import {Toast} from 'mint-ui'
 
 export default {
-  components:{
-    Search,
-    UsersMain:Main
+  methods: {
+    handleClick () {
+      Toast('提示信息')
+    }
   }
 }
 </script>
 
 <style scoped>
-.card {
-  float: left;
-  width: 33.333%;
-  padding: .75rem;
-  margin-bottom: 2rem;
-  border: 1px solid #efefef;
-  text-align: center;
-}
 
-.card > img {
-  margin-bottom: .75rem;
-  border-radius: 100px;
-}
-
-.card-text {
-  font-size: 85%;
-}
 </style>

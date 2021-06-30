@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './App'
-import {Button} from 'mint-ui'
+import VueResource from 'vue-resource'
 
-//注册成标签(全局)
-Vue.component(Button.name,Button)
+//声明使用vue-resource插件
+Vue.use(VueResource) //内部会给vm对象和组件对象添加一个属性：$http
 
 //在main.js中引用的文件在任何组件中都有效
 new Vue({
