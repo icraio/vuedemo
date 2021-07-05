@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row">
-      <div class="col-md-offset-8 col-xs-8">
+      <div class="col-xs-offset-2 col-xs-8">
         <div class="page-header"><h2>Router Basic - 01</h2></div>
       </div>
     </div>
@@ -9,8 +9,8 @@
     <div class="row">
       <div class="col-xs-2 col-xs-offset-2">
         <div class="list-group">
-          <router-link to="/about" class="list-group-item" style="width: 200px">About</router-link>
-          <router-link to="/home" class="list-group-item" style="width: 200px">Home</router-link>
+          <router-link to="/about" class="list-group-item">About</router-link>
+          <router-link to="/home" class="list-group-item">Home</router-link>
         </div>
       </div>
       <div class="col-xs-6">
@@ -26,13 +26,17 @@
   </div>
 </template>
 
-
 <script>
-
 export default {
+  data () {
+    return {
+      msg: 'abc'
+    }
+  }
 }
 </script>
 
-<style scoped>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style>
 
 </style>

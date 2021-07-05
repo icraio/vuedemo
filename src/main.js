@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App'
-import router from 'router'
+import router from './router'
 
 //在main.js中引用的文件在任何组件中都有效
 
