@@ -1,17 +1,21 @@
-/* 路由器模块 */
+/*
+路由器模块
+* */
+
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import About from '../views/About'
 import Home from '../views/Home'
-import News from '../views/News'
+import Home2 from '../views/Home2'
 import Message from '../views/Message'
-import MessageDetail from '../views/MessageDetail'
+import News from '../views/News'
+import Detail from '../views/Detail'
 
 Vue.use(VueRouter)
 
 export default new VueRouter({
-  // n个路由
+  //n个路由
   routes: [
     {
       path: '/about',
@@ -20,25 +24,23 @@ export default new VueRouter({
     {
       path: '/home',
       component: Home,
+      // components: {
+      //   h1:Home,
+      //   h2:Home2}
       children: [
         {
-          // path: '/news', // path最左侧的/永远代表根路径
-          path: '/home/news',
+          path: 'news',
           component: News
         },
         {
-          path: 'message', // 简化写法
+          path: 'message',
           component: Message,
-          children: [
+          children:[
             {
-              path: '/home/message/detail/:id',
-              component: MessageDetail
+              path:'detail/:id/:title/:content',
+              component:Detail
             }
           ]
-        },
-        {
-          path: '',
-          redirect: '/home/news'
         }
       ]
     },

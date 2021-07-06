@@ -2,13 +2,7 @@
 <div>
   <ul>
     <li v-for="msg in messageArr" :key="msg.id">
-      <!--      切换路径时，携带query参数 -->
-
-      <!--      <router-link :to="`/home/message/detail/${msg.id}/${msg.title}/${msg.content}`">{{ msg.title }}</router-link>-->
-<!--      切换路径时，携带query参数 -->
-      <router-link :to="`/home/message/detail?id=${msg.id}&title=${msg.title}&content=${msg.content}`">
-        {{msg.title}}
-      </router-link>
+      <router-link :to="`/home/message/detail/${msg.id}/${msg.title}/${msg.content}`">{{ msg.title }}</router-link>
     </li>
   </ul>
   <hr>
@@ -39,8 +33,7 @@ export default {
         }
       ]
     }
-  },
-
+  }
 }
 </script>
 
