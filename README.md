@@ -271,7 +271,7 @@ routes:[
 ```
 
 #### 路由传参
-1. params传参
+1. params传参  
 &emsp;&emsp;params传参主要是通过路由器路径去传递参数，这里涉及到vc对象中params属性：  
 &emsp;&emsp;&emsp;先是在父组件中路由传参，通过强制绑定将msg中的各个参数传出
 ```
