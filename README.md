@@ -197,7 +197,7 @@ import PubSub from 'pubsub-js'
 ###### 这里请求报错使用的是catch(error=>{})
 
 #### 路由router
-1. 使用路由的话，需要使用router插件。在src的目录下，创建一个router文件夹，用来存放专门适配vue项目中所有路由的js文件 
+1. 使用路由的话，需要使用router插件。在src的目录下，创建一个router文件夹，用来存放专门适配vue项目中所有路由的js文件  
 &emsp;&emsp;&emsp;在index.js中引入vue以及vue-router组件，再使用Vue.use（）调用该组件，然后定义一个新的VueRouter对象，在其中将路由的路径和对应组件以对象的形式配对后，将VueRouter暴露出去
 
 ```
