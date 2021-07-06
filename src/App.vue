@@ -12,7 +12,7 @@
         <div class="panel">
           <div class="panel-body">
             <router-view></router-view>
-<!--            <router-view name="h1"></router-view>-->
+<!--            <router-view name="h1"> </router-view>-->
 <!--            <router-view name="h2"></router-view>-->
           </div>
         </div>
