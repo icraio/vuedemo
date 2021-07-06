@@ -273,7 +273,21 @@ routes:[
 #### 路由传参
 1. params传参  
 &emsp;&emsp;params传参主要是通过路由器路径去传递参数，这里涉及到vc对象中params属性：  
-&emsp;&emsp;&emsp;先是在父组件中路由传参，通过强制绑定将msg中的各个参数传出
+&emsp;&emsp;&emsp;先是在父组件中路由传参，通过强制绑定将msg中的各个参数传出  
+```
+//在index.js中声明接收params参数
+{
+          path: 'message',
+          component: Message,
+          children:[
+            {
+            //声明接收params参数
+              path:'detail/:id/:title/:content',
+              component:Detail
+            }
+          ]
+        }
+```
 ```
 //Message.vue中
 <router-link :to="`/home/message/detail/${msg.id}/${msg.title}/${msg.content}`">{{ msg.title }}</router-link>
