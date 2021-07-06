@@ -11,7 +11,7 @@ export default {
   name: 'Detail',
   computed:{
     id(){
-      return this.$route.query.id
+      return this.$route.params.id
     },
     title(){
       return this.$route.query.title

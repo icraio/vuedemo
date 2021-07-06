@@ -39,7 +39,8 @@ export default new VueRouter({
             {
               //声明接收params参数
               // path:'detail/:id/:title/:content',
-              path:'detail',//query参数无需声明即可接收
+              // path:'detail',//query参数无需声明即可接收
+              path:'detail/:id',//同时接受params和query
               component:Detail
             }
           ]

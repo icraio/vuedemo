@@ -6,7 +6,7 @@
 
       <!--      <router-link :to="`/home/message/detail/${msg.id}/${msg.title}/${msg.content}`">{{ msg.title }}</router-link>-->
 <!--      切换路径时，携带query参数 -->
-      <router-link :to="`/home/message/detail?id=${msg.id}&title=${msg.title}&content=${msg.content}`">
+      <router-link :to="`/home/message/detail/${msg.id}?title=${msg.title}&content=${msg.content}`">
         {{msg.title}}
       </router-link>
     </li>
