@@ -272,5 +272,14 @@ routes:[
 
 #### 路由传参
 1. params传参
-
-在
+&emsp;&emsp;params传参主要是通过路由器路径去传递参数，这里涉及到vc对象中params属性：  
+&emsp;&emsp;&emsp;先是在父组件中路由传参，通过强制绑定将msg中的各个参数传出
+```
+//Message.vue中
+<router-link :to="`/home/message/detail/${msg.id}/${msg.title}/${msg.content}`">{{ msg.title }}</router-link>
+```
+&emsp;&emsp;&emsp;通过':to="``"'传出参数后，在vc对象中的params属性则解析出了所传的数据  
+```
+//在{{}}中，直接默认为vc对象(相当于直接有了this)，直接使用vc对象中的$route.params属性  
+<li>ID：{{$route.params.id}}</li>
+```
