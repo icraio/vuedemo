@@ -10,6 +10,7 @@ import Home from '../views/Home'
 import Home2 from '../views/Home2'
 import Message from '../views/Message'
 import News from '../views/News'
+import Detail from '../views/Detail'
 
 Vue.use(VueRouter)
 
@@ -33,7 +34,13 @@ export default new VueRouter({
         },
         {
           path: 'message',
-          component: Message
+          component: Message,
+          children:[
+            {
+              path:'detail',
+              component:Detail
+            }
+          ]
         }
       ]
     },
