@@ -7,6 +7,7 @@ import VueRouter from 'vue-router'
 
 import About from '../views/About'
 import Home from '../views/Home'
+import Home2 from '../views/Home2'
 
 Vue.use(VueRouter)
 
@@ -19,7 +20,9 @@ export default new VueRouter({
     },
     {
       path: '/home',
-      component: Home
+      components: {
+        h1:Home,
+        h2:Home2}
     },
     {
       path:'/',
