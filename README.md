@@ -242,3 +242,30 @@ new vue({
   router//这里是router：router的简写
 })
 ```
+###### 多级路由  
+1. 在上一级路由的对象中使用children属性，子路由children中的path路径可以简写（省略父路由的路径，注意不用开头写‘/’）  
+
+```
+export default new VueRouter
+routes:[
+  {
+        path: '/home',
+      component: Home,
+      children: [
+        {
+          path: 'news',
+          component: News
+        },
+        {
+          path: 'message',
+          component: Message,
+          children:[
+            {
+              path:'detail',
+              component:Detail
+            }
+          ]
+        }
+      ]}
+]
+```
