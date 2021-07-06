@@ -1,14 +1,14 @@
 <template>
   <ul>
-    <li>ID</li>
-    <li>Title</li>
-    <li>Content</li>
+    <li>ID：{{$route.params.id}}</li>
+    <li>Title：{{$route.params.title}}</li>
+    <li>Content：{{$route.params.content}}</li>
   </ul>
 </template>
 
 <script>
 export default {
-  name: 'Detail'
+  name: 'Detail',
 }
 </script>
 

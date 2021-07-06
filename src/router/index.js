@@ -37,7 +37,7 @@ export default new VueRouter({
           component: Message,
           children:[
             {
-              path:'detail',
+              path:'detail/:id/:title/:content',
               component:Detail
             }
           ]

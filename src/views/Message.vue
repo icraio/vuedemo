@@ -2,7 +2,7 @@
 <div>
   <ul>
     <li v-for="msg in messageArr" :key="msg.id">
-      <router-link to="/home/message/detail">{{ msg.title }}</router-link>
+      <router-link :to="`/home/message/detail/${msg.id}/${msg.title}/${msg.content}`">{{ msg.title }}</router-link>
     </li>
   </ul>
   <hr>
@@ -27,8 +27,8 @@ export default {
           content:'看电视'
         },
         {
-          id:'002',
-          title:'消息2',
+          id:'003',
+          title:'消息3',
           content:'打游戏'
         }
       ]
