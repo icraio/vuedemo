@@ -41,7 +41,8 @@ export default new VueRouter({
               // path:'detail/:id/:title/:content',
               // path:'detail',//query参数无需声明即可接收
               path:'detail/:id',//同时接受params和query
-              component:Detail
+              component:Detail,
+              name:'xiangqing'
             }
           ]
         }
