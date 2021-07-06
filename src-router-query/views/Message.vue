@@ -25,7 +25,7 @@ export default {
         {
           id:'001',
           title:'消息1',
-          content:'看电影'
+          content:'电影'
         },
         {
           id:'002',

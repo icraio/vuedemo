@@ -1,14 +1,25 @@
 <template>
   <ul>
-    <li>ID：{{this.$route.query.id}}</li>
-    <li>Title：{{this.$route.query.title}}</li>
-    <li>Content：{{this.$route.query.content}}</li>
+    <li>ID：{{id}}</li>
+    <li>Title：{{title}}</li>
+    <li>Content：{{content}}</li>
   </ul>
 </template>
 
 <script>
 export default {
   name: 'Detail',
+  computed:{
+    id(){
+      return this.$route.query.id
+    },
+    title(){
+      return this.$route.query.title
+    },
+    content(){
+      return this.$route.query.content
+    }
+  }
 }
 </script>
 
