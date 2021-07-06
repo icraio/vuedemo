@@ -297,3 +297,32 @@ routes:[
 //在{{}}中，直接默认为vc对象(相当于直接有了this)，直接使用vc对象中的$route.params属性  
 <li>ID：{{$route.params.id}}</li>
 ```
+
+2. query动态传参
+&emsp;&emsp;&emsp;在router-link里的:to=""属性中，直接使用query格式的传参
+```
+<router-link :to="`/home/message/detail?id=${msg.id}&title=${msg.title}&content=${msg.content}`">
+        {{msg.title}}
+      </router-link>
+```
+&emsp;&emsp;&emsp;在Detail组件中直接调用query属性内的数据
+```
+<template>
+  <ul>
+    <li>ID：{{this.$route.query.id}}</li>
+    <li>Title：{{title}}</li>
+    <li>Content：{{content}}</li>
+  </ul>
+</template>
+  
+export default {
+  computed:{
+    title(){
+      return this.$route.query.title
+    },
+    content(){
+      return this.$route.query.content
+    }
+  }
+}
+```
