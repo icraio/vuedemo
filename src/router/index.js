@@ -46,7 +46,6 @@ export default new VueRouter({
               // props: {carName: '特斯拉'}//通过props映射自定义的静态数据
               // props:true//映射params参数为props传给路由组件
               props (route) { //这里形参route实际是vc下的$route
-                // console.log(route)
                 const {id} = route.params
                 const {title,content} = route.query
                 return {id,title,content}

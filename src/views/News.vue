@@ -1,8 +1,17 @@
 <template>
   <ul>
-    <li>new001</li>
-    <li>new002</li>
-    <li>new003</li>
+    <li>
+      new001
+      <input type="text">
+    </li>
+    <li>
+      new002
+      <input type="text">
+    </li>
+    <li>
+      new003
+      <input type="text">
+    </li>
   </ul>
 </template>
 
