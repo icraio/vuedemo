@@ -2,15 +2,11 @@
   <div>
     <ul>
       <li v-for="msg in messageArr" :key="msg.id">
-        <!--      切换路径时，携带query参数 -->
-
-        <!--      <router-link :to="`/home/message/detail/${msg.id}/${msg.title}/${msg.content}`">{{ msg.title }}</router-link>-->
-        <!--      切换路径时，携带query参数 -->
-        <!--      <router-link :to="`/home/message/detail/${msg.id}?title=${msg.title}&content=${msg.content}`">{{msg.title}}</router-link>-->
-        <router-link
-          :to="{name:'xiangqing',params:{id:msg.id},query:{title:msg.title,content:msg.content}}">
+        <router-link :to="{name:'xiangqing',params:{id:msg.id},query:{title:msg.title,content:msg.content}}">
           {{ msg.title }}
         </router-link>
+        <button @click="pushShow(msg)">push查看</button>
+        <button @click="replaceShow(msg)">replace查看</button>
       </li>
     </ul>
     <hr>
@@ -42,6 +38,16 @@ export default {
       ]
     }
   },
+
+  methods: {
+    pushShow (msg) {
+      this.$router.push({name:'xiangqing',params:{id:msg.id},query:{title:msg.title,content:msg.content}})
+    },
+    replaceShow(msg){
+      this.$router.replace({name:'xiangqing',params:{id:msg.id},query:{title:msg.title,content:msg.content}})
+
+    }
+  }
 
 }
 </script>
