@@ -9,16 +9,17 @@
 <script>
 export default {
   name: 'Detail',
+  props:['id'],
   computed:{
-    id(){
-      return this.$route.params.id
-    },
-    title(){
-      return this.$route.query.title
-    },
-    content(){
-      return this.$route.query.content
-    }
+    // id(){
+    //   return this.$route.params.id
+    // },
+    // title(){
+    //   return this.$route.query.title
+    // },
+    // content(){
+    //   return this.$route.query.content
+    // }
   }
 }
 </script>
