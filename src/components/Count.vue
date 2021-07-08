@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>当前求和为{{ sum }}</h2>
-    <select v-model="n">
+    <select v-model.number="n">
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
