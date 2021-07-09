@@ -1,9 +1,6 @@
-
-import Vue from 'vue'
-//引入Vuex
-import Vuex from 'vuex'
-//应用插件
-Vue.use(Vuex)
+import Vue from 'vue' //引入Vue
+import Vuex from 'vuex'//引入Vuex
+Vue.use(Vuex)//应用插件
 
 //初始化状态，要写成一个对象，包含n组：key=>value，因为state要管理n个组件的状态
 const state = {
@@ -43,11 +40,18 @@ const mutations = {
   }
 }
 
+const getters = {
+  demo(){
+    console.log('demo')
+  }
+}
+
 //创建store用于管理：state对象、actions对象、mutations对象
 const store = new Vuex.Store({
   state,
   actions,
-  mutations
+  mutations,
+  getters
 })
 
 //暴露store
