@@ -12,15 +12,45 @@ const state = {
 
 //创建一个actions，值为一个对象，包含：n个响应组件“动作“的函数
 const actions = {
-  jia(a,b){
-    console.log(a,b)
+  jia (context, value) { //context是一个迷你版的$store，我们要用context.commit()去通知mutations加工状态
+    context.commit('JIA', value)
+  },
+  jian (context, value) {
+    context.commit('JIAN', value)
+  },
+  jishujia (context, value) {
+    context.commit('JISHUJIA', value)
+  },
+  yibujia (context, value) {
+    context.commit('YIBUJIA', value)
+  }
+}
+
+//创建一个mutations，值为一个对象，包含：n个真正用于加工状态的函数
+const mutations = {
+  JIA (state, value) {
+    state.sum += value
+  },
+  JIAN (state, value) {
+    state.sum -= value
+  },
+  JISHUJIA (state, value) {
+    if (state.sum % 2) {
+      state.sum += value
+    }
+  },
+  YIBUJIA (state, value) {
+    setTimeout(() => {
+      state.sum += value
+    }, 1000)
   }
 }
 
 //创建store用于管理：state对象、actions对象、mutations对象
 const store = new Vuex.Store({
   state,
-  actions
+  actions,
+  mutations
 })
 
 //暴露store

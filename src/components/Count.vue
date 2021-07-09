@@ -23,17 +23,16 @@ export default {
   },
   methods: {
     increment () {
+      this.$store.dispatch('jia',this.n)
     },
     decrement () {
-
+      this.$store.dispatch('jian',this.n)
     },
     incrementOdd () {
-
+      this.$store.dispatch('jishujia',this.n)
     },
     incrementAsync () {
-      setTimeout(()=>{
-
-      },500)
+      this.$store.dispatch('yibujia',this.n)
     }
   }
 }
