@@ -51,7 +51,7 @@ const getters = {
   }
 }
 
-//创建store用于管理：state对象、actions对象、mutations对象
+//创建store用于管理：state对象、actions对象、mutations对象 ------类似于Vue中的computed
 const store = new Vuex.Store({
   state,
   actions,
