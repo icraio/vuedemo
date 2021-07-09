@@ -19,10 +19,14 @@ const actions = {
     context.commit('JIAN', value)
   },
   jishujia (context, value) {
-    context.commit('JISHUJIA', value)
+    if (context.state.sum%2){
+      context.commit('JIA', value)
+    }
   },
   yibujia (context, value) {
-    context.commit('YIBUJIA', value)
+    setTimeout(() => {
+      context.commit('YIBUJIA', value)
+    }, 1000)
   }
 }
 
@@ -34,15 +38,8 @@ const mutations = {
   JIAN (state, value) {
     state.sum -= value
   },
-  JISHUJIA (state, value) {
-    if (state.sum % 2) {
-      state.sum += value
-    }
-  },
   YIBUJIA (state, value) {
-    setTimeout(() => {
       state.sum += value
-    }, 1000)
   }
 }
 
