@@ -23,10 +23,10 @@ export default {
   },
   methods: {
     increment () {
-      this.$store.commit('JIA',this.n)
+      this.$store.dispatch('Icrani',this.n)
     },
     decrement () {
-      this.$store.commit('JIAN',this.n)
+      this.$store.dispatch('JIANFA',this.n)
     },
     incrementOdd () {
       this.$store.dispatch('jishujia',this.n)

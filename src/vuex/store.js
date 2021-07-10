@@ -22,7 +22,7 @@ const actions = {
   // },
   jishujia (context, value) {
     if (context.state.sum % 2) {
-      context.commit('JIA', value)
+      context.commit('JIAFA', value)
     }
   },
   yibujia (context, value) {
@@ -34,10 +34,10 @@ const actions = {
 
 //创建一个mutations，值为一个对象，包含：n个真正用于加工状态的函数
 const mutations = {
-  JIA (state, value) {
+  JIAFA (state, value) {
     state.sum += value
   },
-  JIAN (state, value) {
+  JIANFA (state, value) {
     state.sum -= value
   },
   YIBUJIA (state, value) {
@@ -53,12 +53,11 @@ const getters = {
 }
 
 //创建store用于管理：state对象、actions对象、mutations对象 ------类似于Vue中的computed
-const store = new Vuex.Store({
+export default new Vuex.Store({
   state,
   actions,
   mutations,
   getters
 })
 
-//暴露store
-export default store
+

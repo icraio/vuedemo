@@ -69,10 +69,10 @@ export default {
 
   methods: {
     increment () {
-      this.$store.dispatch('jia', this.n)
+      this.$store.commit('JIAFA', this.n)
     },
     decrement () {
-      this.$store.dispatch('jian', this.n)
+      this.$store.commit('JIANFA', this.n)
     },
     incrementOdd () {
       this.$store.dispatch('jishujia', this.n)
