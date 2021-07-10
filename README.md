@@ -327,7 +327,7 @@ export default {
 }
 ```
 
-#### Vuex
+### Vuex
 1. store (管理Vuex的文件)
 
   1. state【用于存放数据】【可以比喻成原料】
