@@ -334,14 +334,18 @@ export default {
 
       1. state【用于存放数据】【可以比喻成原料】
       2. action【用来判断条件之类，state中的数据可以直接获取】【可以比喻成分拣】
+        注：如果action中没有业务逻辑，可以直接省略不用写，组件中不适用dispatch，使用commit直接对接mutations
       3. mutations【用来进行最原始的计算】
       4. getters【可以看做是vuex中的计算属性】
 2. 组件中的使用方法：  
   ```
   //使用this.$store.dispatch('arg1',arg2)来调用store中的getters
   methods:{
-    increment(){
-    this.$store.dispatch('jia',this.n)
+    increment () {
+      this.$store.commit('JIA',this.n)
+    },
+    incrementOdd () {
+      this.$store.dispatch('jishujia',this.n)
     }
   }
   ```
