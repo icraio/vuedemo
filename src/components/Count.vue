@@ -36,7 +36,6 @@ export default {
     //   return this.$store.state.sum
     // },
 
-
     //靠mapState生成计算属性[这里是原始写法]
     // ...mapState({
     //   sum:'sum', //arg1:arg2 中 arg1控制的是组件中模板读取的属性。arg2控制的是读取state中的对应属性
@@ -48,7 +47,6 @@ export default {
     //用mapstate生成计算属性[精简版]
     ...mapState(['sum','name']),
 
-
     //自己写计算属性定义bigSum，值来自于getters中的bigSum
     // bigSum () {
     //   return this.$store.getters.bigSum
@@ -56,9 +54,7 @@ export default {
 
     ...mapGetters(['bigSum']),
 
-
     /* -------------------------------------- */
-
 
   },
   // computed:{
