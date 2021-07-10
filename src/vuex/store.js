@@ -28,7 +28,7 @@ const actions = {
   yibujia (context, value) {
     setTimeout(() => {
       context.commit('YIBUJIA', value)
-    }, 1000)
+    }, 800)
   }
 }
 
