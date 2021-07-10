@@ -326,3 +326,11 @@ export default {
   }
 }
 ```
+
+##### Vuex
+1. store (管理Vuex的文件)
+
+  1. state【用于存放数据】【可以比喻成原料】
+  2. action【用来判断条件之类，state中的数据可以直接获取】【可以比喻成分拣】
+  3. mutations【用来进行最原始的计算】
+  4. getters【可以看做是vuex中的计算属性】
