@@ -14,12 +14,12 @@ const state = {
 
 //创建一个actions，值为一个对象，包含：n个响应组件“动作“的函数
 const actions = {
-  jia (context, value) { //context是一个迷你版的$store，我们要用context.commit()去通知mutations加工状态
-    context.commit('JIA', value)
-  },
-  jian (context, value) {
-    context.commit('JIAN', value)
-  },
+  // jia (context, value) { //context是一个迷你版的$store，我们要用context.commit()去通知mutations加工状态
+  //   context.commit('JIA', value)
+  // },
+  // jian (context, value) {
+  //   context.commit('JIAN', value)
+  // },
   jishujia (context, value) {
     if (context.state.sum % 2) {
       context.commit('JIA', value)
