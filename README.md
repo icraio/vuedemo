@@ -336,3 +336,12 @@ export default {
       2. action【用来判断条件之类，state中的数据可以直接获取】【可以比喻成分拣】
       3. mutations【用来进行最原始的计算】
       4. getters【可以看做是vuex中的计算属性】
+2. 组件中的使用方法：  
+  ```
+  //使用this.$store.dispatch('arg1',arg2)来调用store中的getters
+  methods:{
+    increment(){
+    this.$store.dispatch('jia',this.n)
+    }
+  }
+  ```
