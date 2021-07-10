@@ -8,7 +8,8 @@ Vue.use(Vuex)
 
 //初始化状态，要写成一个对象，包含n组：key=>value，因为state要管理n个组件的状态
 const state = {
-  sum: 0
+  sum: 0,
+  name:'老刘'
 }
 
 //创建一个actions，值为一个对象，包含：n个响应组件“动作“的函数

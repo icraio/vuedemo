@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>对象中包含对象</title>
+</head>
+<body>
+<script>
+  // let obj2 = {
+  //   a:1,
+  //   b:2
+  // }
+  //
+  //
+  // let obj1 = {obj2}//在vue中语法错误 {{}}这是vue中的语法
+  // console.log(obj1)
+  // let obj = {...obj2}//将obj2复制到obj中
+  // console.log(obj)
+
+  function demo () {
+    return {a:1,b:2,c:3}
+  }
+  // let obj3 = {demo()}//直接在js中语法错误
+  let obj3 = {...demo()}
+  console.log(obj3)
+
+</script>
+</body>
+</html>
