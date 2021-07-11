@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>当前求和为{{ sum }}</h2>
-    <span>state中name的值{{name}}</span>
+    <span>state中name的值{{ name }}</span>
     <h2>当前求和为{{ bigSum }}</h2>
     <br>
     <select v-model.number="n">
@@ -9,16 +9,16 @@
       <option value="2">2</option>
       <option value="3">3</option>
     </select>&nbsp;
-    <button @click="increment">+</button>&nbsp;
-    <button @click="decrement">-</button>&nbsp;
-    <button @click="incrementOdd">奇数再加</button>&nbsp;
-    <button @click="incrementAsync">异步加</button>&nbsp;
+    <button @click="increment(n)">+</button>&nbsp;
+    <!--    <button @click="decrement">-</button>&nbsp;-->
+    <!--    <button @click="incrementOdd">奇数再加</button>&nbsp;-->
+    <!--    <button @click="incrementAsync">异步加</button>&nbsp;-->
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
-import {mapGetters} from 'vuex/dist/vuex.mjs'
+import {mapState, mapGetters, mapMutations} from 'vuex'
+
 export default {
   name: 'Count',
   data () {
@@ -45,7 +45,7 @@ export default {
     /* -------------------------------------- */
 
     //用mapstate生成计算属性[精简版]
-    ...mapState(['sum','name']),
+    ...mapState(['sum', 'name']),
 
     //自己写计算属性定义bigSum，值来自于getters中的bigSum
     // bigSum () {
@@ -64,18 +64,26 @@ export default {
   // },
 
   methods: {
-    increment () {
-      this.$store.commit('JIAFA', this.n)
-    },
-    decrement () {
-      this.$store.commit('JIANFA', this.n)
-    },
-    incrementOdd () {
-      this.$store.dispatch('jishujia', this.n)
-    },
-    incrementAsync () {
-      this.$store.dispatch('yibujia', this.n)
-    }
+
+    //靠自己写方法，和mutations中的JIA对话，完成加法
+    /*    increment (value) {
+          this.$store.commit('JIAFA', value)
+        },*/
+
+    ...mapMutations({
+      increment:'JIA'
+    })
+
+
+    /*    decrement () {
+          this.$store.commit('JIANFA', this.n)
+        },
+        incrementOdd () {
+          this.$store.dispatch('jishujia', this.n)
+        },
+        incrementAsync () {
+          this.$store.dispatch('yibujia', this.n)
+        }*/
   }
 }
 </script>
