@@ -71,7 +71,7 @@ export default {
         },*/
 
     ...mapMutations({
-      increment:'JIA'
+      increment:'JIAFA'
     })
 
 
