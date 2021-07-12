@@ -350,5 +350,29 @@ export default {
   }
   ```
   
-2. 在组件中使用Vuex自带方式连接store的方法有：mapState, mapGetters, mapMutations, mapActions  
-&emsp;&emsp; [有原生写法有简写写法]
+2. 在组件中使用Vuex自带方式连接store的方法：   
+&emsp;[mapState, mapGetters, mapMutations, mapActions]   
+&emsp;&emsp;这里有原生写法有简写写法  
+
+```
+  //在组件中引入方法
+  import {mapState, mapGetters, mapMutations, mapActions} from 'vuex'
+```
+
+```
+  //在计算属性中调用引入的方法
+  computed：{
+  ...mapState(['sum', 'name']),
+  ...mapGetters(['bigSum']),
+  
+  }
+```
+```
+  ///在方法中调用引入的方法
+  ...mapMutations({
+      increment: 'JIAFA',
+      decrement: 'JIANFA'
+    }),
+    ...mapActions(['incrementOdd', 'incrementAsync'])
+```
+###### 注：1. 简写形式条件一定要保证state/actions/mutations中的函数名和组件中的事件的回调同名  2.因为是在对象中进行对象赋值，所以前面需要使用{...方法名{}}形式
