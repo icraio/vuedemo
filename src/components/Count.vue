@@ -9,15 +9,15 @@
       <option value="2">2</option>
       <option value="3">3</option>
     </select>&nbsp;
-    <button @click="increment(n)">+</button>&nbsp;
-    <!--    <button @click="decrement">-</button>&nbsp;-->
-    <!--    <button @click="incrementOdd">奇数再加</button>&nbsp;-->
-    <!--    <button @click="incrementAsync">异步加</button>&nbsp;-->
+    <button @click="increment(n)">+</button>&nbsp;&nbsp;
+    <button @click="decrement(n)">-</button>&nbsp;&nbsp;
+    <button @click="incrementOdd(n)">奇数再加</button>&nbsp;
+    <button @click="incrementAsync(n)">异步加</button>&nbsp;
   </div>
 </template>
 
 <script>
-import {mapState, mapGetters, mapMutations} from 'vuex'
+import {mapState, mapGetters, mapMutations, mapActions} from 'vuex'
 
 export default {
   name: 'Count',
@@ -66,24 +66,33 @@ export default {
   methods: {
 
     //靠自己写方法，和mutations中的JIA对话，完成加法
-    /*    increment (value) {
+    /*  increment (value) {
           this.$store.commit('JIAFA', value)
-        },*/
-
-    ...mapMutations({
-      increment:'JIAFA'
-    })
-
-
-    /*    decrement () {
+        },
+        decrement () {
           this.$store.commit('JIANFA', this.n)
         },
-        incrementOdd () {
+    */
+
+    //靠mapMutations生成函数，和mutations中的方法对话，完成操作
+    //mapMutations也能简写成数组的形式，但必须保证mutations中的函数名和组件中的事件的回调同名
+    ...mapMutations({
+      increment: 'JIAFA',
+      decrement: 'JIANFA'
+    }),
+
+    //靠自己写incrementOdd方法，和actions中的jishujia对话，完成奇数加操作
+    //靠自己写incrementAsync方法，和actions中的yibujia对话，完成异步加操作
+    /*    incrementOdd () {
           this.$store.dispatch('jishujia', this.n)
         },
         incrementAsync () {
           this.$store.dispatch('yibujia', this.n)
         }*/
+
+    /* -------------------------------------- */
+
+    ...mapActions(['incrementOdd','incrementAsync'])
   }
 }
 </script>

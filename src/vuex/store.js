@@ -20,12 +20,12 @@ const actions = {
   // jian (context, value) {
   //   context.commit('JIAN', value)
   // },
-  jishujia (context, value) {
+  incrementOdd (context, value) {
     if (context.state.sum % 2) {
       context.commit('JIAFA', value)
     }
   },
-  yibujia (context, value) {
+  incrementAsync (context, value) {
     setTimeout(() => {
       context.commit('YIBUJIA', value)
     }, 800)
