@@ -349,3 +349,6 @@ export default {
     }
   }
   ```
+  
+2. 在组件中使用Vuex自带方式连接store的方法有：mapState, mapGetters, mapMutations, mapActions  
+&emsp;&emsp; [有原生写法有简写写法]
