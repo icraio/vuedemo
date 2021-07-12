@@ -61,7 +61,7 @@ export default {
   //   fmtSum(){
   //     return this.$store.state.sum *100
   //   }
-  // },
+  // },+
 
   methods: {
 
