@@ -375,4 +375,5 @@ export default {
     }),
     ...mapActions(['incrementOdd', 'incrementAsync'])
 ```
-###### 注：1. 简写形式条件一定要保证state/actions/mutations中的函数名和组件中的事件的回调同名  2.因为是在对象中进行对象赋值，所以前面需要使用{...方法名{}}形式
+###### 1. 简写形式条件一定要保证state/actions/mutations中的函数名和组件中的事件的回调同名
+###### 2.因为是在对象中进行对象赋值，所以前面需要使用{...方法名{}}形式
