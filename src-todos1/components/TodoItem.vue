@@ -3,10 +3,8 @@
 
   -->
   <li @mouseenter="handleEnter(true)" @mouseleave="handleEnter(false)" :style="{background:bgColor}">
-    <label>
       <input type="checkbox" v-model="todo.complete"/>
       <span>{{ todo.title }}</span>
-    </label>
     <button class="btn btn-danger" v-show="isShow" @click="deleteItem">删除</button>
   </li>
 </template>

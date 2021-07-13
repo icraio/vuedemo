@@ -1,18 +1,19 @@
 <template>
+
   <li @mouseenter="handleEnter(true)" @mouseleave="handleEnter(false)" :style="{background:bgColor}">
       <input type="checkbox" v-model="todo.complete"/>
       <span>{{ todo.title }}</span>
     <button class="btn btn-danger" v-show="isShow" @click="deleteItem">删除</button>
   </li>
+
 </template>
 
 <script>
-import PubSub from 'pubsub-js'
-
 export default {
   props: {
     todo: Object,
     index: Number,
+    deleteTodo: Function
   },
   data () {
     return {
@@ -33,9 +34,7 @@ export default {
     deleteItem () {
       const {todo, index, deleteTodo} = this
       if (window.confirm(`确认删除${todo.title}吗？`)) {
-        // deleteTodo(index)
-        //发布消息
-        PubSub.publish('deleteTodo', index)
+        deleteTodo(index)
       }
     }
   }
