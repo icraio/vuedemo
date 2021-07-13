@@ -1,8 +1,6 @@
 <template>
   <div class="todo-footer">
-    <label>
       <input type="checkbox" v-model="isAllCheck">
-    </label>
     <span>
       <span>已完成{{ completeSize }}</span>/全部{{ todos.length }}
     </span>
