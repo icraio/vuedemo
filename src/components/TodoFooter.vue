@@ -5,7 +5,10 @@
       <span>已完成{{ completeSize }}</span>/全部{{ todos.length }}
     </span>
     <button class="btn btn-danger" v-show="completeSize" @click="deleteCompleteTodos">清除已完成任务</button>
+
+    <button class="btn new btn-danger" v-show="completeSize" @click="deleteallcontent">清除全部</button>
   </div>
+
 </template>
 
 <script>
@@ -13,7 +16,8 @@ export default {
   props: {
     todos: Array,
     deleteCompleteTodos: Function,
-    selectAllTodos: Function
+    selectAllTodos: Function,
+    deleteallcontent:Function
   },
   computed: {
     completeSize () {
@@ -58,5 +62,9 @@ export default {
 .todo-footer button {
   float: right;
   margin-top: 5px;
+}
+
+.new{
+  margin: 5px;
 }
 </style>

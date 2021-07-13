@@ -39,6 +39,10 @@ export default {
     deleteCompleteTodos () {
       this.todos = this.todos.filter(todo => !todo.complete)
     },
+    //清除所有
+    deleteallcontent(){
+      localStorage.removeItem('todos_keys')
+    },
     //全选/全不选
     selectAllTodos (check) {
       this.todos.forEach(todo => todo.complete = check)

@@ -4,8 +4,9 @@
       <div>
         <input type="checkbox" v-model="todo.complete"/>
         <span>{{ todo.title }}</span>
-      </div>
+
     <button class="btn btn-danger" v-show="isShow" @click="deleteItem">删除</button>
+      </div>
   </li>
 
 </template>
