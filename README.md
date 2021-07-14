@@ -60,7 +60,7 @@
 ```
 
 ### 对于组件的引用还有一种方法是slot插槽，当我们将多次重复调用某一个组件的时候，可以使用slot
-&emsp;&emsp;在父组件中使用slot调用子组件的时候，slot属性要与子组件的name属性对应，并且，子组件中相关的计算属性调到父组件中：
+&emsp;&emsp;在父组件中使用slot调用子组件的时候，slot属性要与子组件的name属性对应，并且，子组件中相关的计算属性调到父组件中：  
 &emsp;父组件template中：
 ```
  <span slot="count">已完成{{ completeSize }}/全部{{ todos.length }}</span>
@@ -82,7 +82,7 @@
 
 #### 上面是一类数据组件传输方法，对于函数的传输还有：
 ### todos2
-1. 给标签对象绑定事件监听：(这种方法只能用于父子组件之间传递)
+1. 给标签对象绑定事件监听：(这种方法只能用于父子组件之间传递)  
 &emsp;父组件:
 ```
   //标签中
@@ -95,7 +95,7 @@
     }
   }
 ```
-&emsp;&emsp;&emsp;子组件:
+&emsp;&emsp;&emsp;子组件:  
 ```
 //在methods中使用$emit()
   const todo = {
@@ -104,8 +104,8 @@
       }
   this.$emit('addTodo',todo)
 ```
-2. 使用ref传递
-使用ref传递的话需要使用mounted(){//执行异步代码}
+2. 使用ref传递  
+使用ref传递的话需要使用mounted(){//执行异步代码}  
 &emsp;父组件：
 ```
 //标签中
@@ -121,20 +121,20 @@
 ```
  this.$emit('addTodo',todo)
 ```
-3. 使用pubsub组建通信
-&emsp;&emsp;引入pubsub之后可以直接调用方法
+3. 使用pubsub组建通信  
+&emsp;&emsp;引入pubsub之后可以直接调用方法  
 ```
 //首先在需要使用pubsub的组件中引入pubsub
 import PubSub from 'pubsub-js'
 ```
-&emsp;父组件：
+&emsp;父组件：  
 ```
 //在mounted()中直接调用PubSub的方法
     PubSub.subscribe('deleteTodo', (msg, index) => {
       this.deleteTodo(index)
     })
 ```
-&emsp;子组件：
+&emsp;子组件：  
 ```
 //deleteItem()中使用：
     deleteItem () {
@@ -197,10 +197,10 @@ import PubSub from 'pubsub-js'
 ###### 这里请求报错使用的是catch(error=>{})
 
 #### 路由router
-1. 使用路由的话，需要使用router插件。在src的目录下，创建一个router文件夹，用来存放专门适配vue项目中所有路由的js文件
-&emsp;在index.js中引入vue以及vue-router组件，再使用Vue.use（）调用该组件，然后定义一个新的VueRouter对象，在其中将路由的路径和对应组件以对象的形式配对后，将VueRouter暴露出去
-&emsp;一个路由配置一个组件就使用component
-&emsp;一个路由配置多个组件就使用components
+1. 使用路由的话，需要使用router插件。在src的目录下，创建一个router文件夹，用来存放专门适配vue项目中所有路由的js文件  
+&emsp;在index.js中引入vue以及vue-router组件，再使用Vue.use（）调用该组件，然后定义一个新的VueRouter对象，在其中将路由的路径和对应组件以对象的形式配对后，将VueRouter暴露出去  
+&emsp;一个路由配置一个组件就使用component  
+&emsp;一个路由配置多个组件就使用components  
 ```
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -231,19 +231,19 @@ export default new VueRouter({
   ]
 })
 ```
-3. 在main.js中引入之前配置的index.js文件，再声明router
+3. 在main.js中引入之前配置的index.js文件，再声明router  
 ```
 //引入路由配置
 import routr from './router'
 ```
-&emsp;&emsp;在vue对象中声明
+&emsp;&emsp;在vue对象中声明  
 ```
 new vue({
   router//这里是router：router的简写
 })
 ```
 ###### 多级路由
-1. 在上一级路由的对象中使用children属性，子路由children中的path路径可以简写（省略父路由的路径，注意不用开头写‘/’）
+1. 在上一级路由的对象中使用children属性，子路由children中的path路径可以简写（省略父路由的路径，注意不用开头写‘/’）  
 
 ```
 export default new VueRouter
@@ -271,9 +271,9 @@ routes:[
 ```
 
 #### 路由传参
-1. params传参
-&emsp;&emsp;params传参主要是通过路由器路径去传递参数，这里涉及到vc对象中params属性：
-&emsp;&emsp;&emsp;先是在父组件中路由传参，通过强制绑定将msg中的各个参数传出
+1. params传参  
+&emsp;&emsp;params传参主要是通过路由器路径去传递参数，这里涉及到vc对象中params属性：  
+&emsp;&emsp;&emsp;先是在父组件中路由传参，通过强制绑定将msg中的各个参数传出  
 ```
 //在index.js中声明接收params参数
 {
@@ -292,20 +292,20 @@ routes:[
 //Message.vue中
 <router-link :to="`/home/message/detail/${msg.id}/${msg.title}/${msg.content}`">{{ msg.title }}</router-link>
 ```
-&emsp;&emsp;&emsp;通过':to="``"'传出参数后，在vc对象中的params属性则解析出了所传的数据
+&emsp;&emsp;&emsp;通过':to="``"'传出参数后，在vc对象中的params属性则解析出了所传的数据  
 ```
 //在{{}}中，直接默认为vc对象(相当于直接有了this)，直接使用vc对象中的$route.params属性
 <li>ID：{{$route.params.id}}</li>
 ```
 
-2. query动态传参
-&emsp;&emsp;&emsp;在router-link里的:to=""属性中，直接使用query格式的传参
+2. query动态传参  
+&emsp;&emsp;&emsp;在router-link里的:to=""属性中，直接使用query格式的传参  
 ```
 <router-link :to="`/home/message/detail?id=${msg.id}&title=${msg.title}&content=${msg.content}`">
         {{msg.title}}
       </router-link>
 ```
-&emsp;&emsp;&emsp;在Detail组件中直接调用query属性内的数据
+&emsp;&emsp;&emsp;在Detail组件中直接调用query属性内的数据  
 ```
 <template>
   <ul>
